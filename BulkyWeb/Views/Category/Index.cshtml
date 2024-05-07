@@ -1,0 +1,100 @@
+﻿@using Bulky.Models
+@model Category
+
+@{
+    var statusCode = ViewData["StatusCode"];
+}
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Category";
+}
+
+<div class="container">
+    <div class="row pt-4 pb-3">
+        <div class="col-6">
+            <h2 class="text-primary">
+                Category List
+            </h2>
+        </div>
+        <div class="col-6 text-end">
+            <a class="btn btn-primary" id="newCategory">
+                <i class="bi bi-plus-square p-lg-1"></i>
+                Create New Category
+            </a>
+        </div>
+    </div>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>
+                Category Name
+            </th>
+            <th>
+                Display Folder
+            </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @foreach (Category item in ViewData["Category"] as IList<Category>)
+        {
+            <tr>
+                <th>
+                    @item.Name
+                </th>
+                <th>
+                    @item.DisplayOrder
+                </th>
+                <th>
+                    <div id="manipulate">
+                        <button type="button" class="btn btn-primary mt-3" id="edit">Edit</button>
+                        <button type="button" onclick="DeleteCategory('@item.Id')" class="btn btn-primary mt-3" id="delete">Delete</button>
+                    </div>
+                </th>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+
+<div id="new-category-form" class="col card mt-3">
+    <div class="card-body">
+        <h5 class="card-title">New Category</h5>
+        <form method="post">
+            <div class="form-group">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" class="form-control" id="categoryName">
+            </div>
+            <div class="form-group">
+                <label asp-for="DisplayOrder"></label>
+                <input asp-for="DisplayOrder" class="form-control" id="DisplayOrder">
+            </div>
+            <button asp-action="CreateCategory" asp-controller="Category" type="submit" class="btn btn-primary mt-3">Submit</button>
+        </form>
+    </div>
+</div>
+
+<div id="edit-category-form" class="col card mt-3">
+    <div class="card-body">
+        <h5 class="card-title">Edit Category</h5>
+        <form method="post">
+            <div class="form-group">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" class="form-control" id="">
+            </div>
+            <div class="form-group">
+                <label asp-for="DisplayOrder"></label>
+                <input asp-for="DisplayOrder" class="form-control" id="">
+            </div>
+            <button asp-action="EditCategory" asp-controller="Category" type="submit" class="btn btn-primary mt-3">Submit</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+<div id="result-message" class="alert" style="display: none;"></div>
+
+<script src="js/category.js"></script>

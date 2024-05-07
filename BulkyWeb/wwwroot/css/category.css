@@ -1,0 +1,30 @@
+﻿#new-category-form
+{
+    display: none;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    width: 500px;
+    background-color: rgb(235, 235, 235);
+    position: fixed;
+}
+
+#edit-category-form
+{
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    background-color: rgb(235, 235, 235);
+    position: fixed;
+}
+
+#manipulate
+{
+    text-align: center;
+}
+.form-control
+{
+    background-color: white;
+}
