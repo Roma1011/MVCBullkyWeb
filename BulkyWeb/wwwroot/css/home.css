@@ -1,0 +1,4 @@
+﻿.carousel-image {
+    height: 35vh; /* 25% of the viewport height */
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
+}

@@ -12,8 +12,7 @@ namespace Bulky.Controllers
         {
             _logger = logger;
         }
-
-        [AcceptVerbs()]
+        
         public IActionResult Index()
         {
             return View();
